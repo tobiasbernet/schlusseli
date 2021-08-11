@@ -12,7 +12,7 @@ defmodule SchlusseliWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    # plug(Schlusseli.Plug.VerifyKeycloakToken)
+    plug(Schlusseli.Plug.OpenidConnector)
   end
 
   scope "/", SchlusseliWeb do
