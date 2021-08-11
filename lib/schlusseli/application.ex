@@ -9,9 +9,9 @@ defmodule Schlusseli.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      SchlusseliWeb.Endpoint
-      # Starts a worker by calling: Schlusseli.Worker.start_link(arg)
-      # {Schlusseli.Worker, arg},
+      SchlusseliWeb.Endpoint,
+      # Starts the openID worker
+      {OpenIDConnect.Worker, Application.get_env(:schlusseli, :openid_connect_providers)}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
