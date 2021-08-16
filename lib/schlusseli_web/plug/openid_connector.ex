@@ -3,7 +3,7 @@ defmodule Schlusseli.Plug.OpenidConnector do
   Plug for verifying authorization on a per request basis, verifies that a token is set in the
   `Authorization` header.
 
-  Problem: OpenIDConnect verifies the token with the public key. No introspec is made. We don't know if the token is valid or not.
+  Problem: OpenIDConnect verifies the token with the public key. No `introspec` is made. We don't know if the token is valid or not.
   """
 
   import Plug.Conn
@@ -32,6 +32,9 @@ defmodule Schlusseli.Plug.OpenidConnector do
 
   def fetch_token(_), do: nil
 
+  @doc """
+  Verifies the token with OpenIDConnect and adds the claims to the conn.
+  """
   def verify_token(token, conn, auth_provider \\ :keycloak) do
     with {:ok, claims} <- OpenIDConnect.verify(auth_provider, token),
     true <- verify_audience(claims, get_provider_conf(:verify_token_audience)) do
@@ -42,10 +45,14 @@ defmodule Schlusseli.Plug.OpenidConnector do
     end
   end
 
-  def verify_audience(%{"aud" => aud}, true) do
-    IO.inspect(get_provider_conf(:client_id))
+  @doc """
+  Checks the audience if the `verify token audience` is `true`.
+  """
+  def verify_audience(%{"aud" => aud}, true) when is_binary(aud) do
     aud == get_provider_conf(:client_id)
   end
+
+  def verify_audience(_, true), do: false
 
   def verify_audience(_, _), do: true
 

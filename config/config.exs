@@ -29,7 +29,7 @@ config :phoenix, :json_library, Jason
 config :schlusseli, :openid_connect_providers,
   keycloak: [
     discovery_document_uri: "http://127.0.0.1:8085/auth/realms/Schlusseli/.well-known/openid-configuration",
-    client_id: "app-api",
+    client_id: "schlusseli-api",
     client_secret: "9daec6ad-c6ac-4cde-b955-dc846c2cfbbb",
     redirect_uri: "",
     response_type: "code",
