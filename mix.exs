@@ -46,7 +46,8 @@ defmodule Schlusseli.MixProject do
       {:absinthe_plug, "~> 1.4"},
       {:keycloak, "~> 1.0.0"},
       {:joken, "~> 2.3.0"},
-      {:credo, "~> 1.4", only: [:dev, :test], runtime: false}
+      {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:openid_connect, "~> 0.1.1"}
     ]
   end
 

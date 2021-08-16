@@ -7,11 +7,17 @@ To start your Phoenix server:
   * Install Node.js dependencies with `cd assets && npm install`
   * Start Phoenix endpoint with `mix phx.server`
 
-Now you can visit [`localhost:4040`](http://localhost:4040) from your browser.
+Start schlusseli and keycloak: `./startup.sh`.
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Keycloak: Now you can visit [`http://127.0.0.1:8085/auth/`](http://127.0.0.1:8085/auth/) from your browser.
 
-Start schlusseli and keycloa: `./startup.sh`
+## Keycloak setup
+
+Create 3 clients:
+
+  * `schlusseli-api`: Bearer-only client. The API backend service.
+  * `schlusseli-ui`: Confidential client has access to the `schlusseli-api` service.
+  * `evil-ui`: Confidential client, has no access to the `schlusseli-api`. 
 
 ## Learn more
 
@@ -20,4 +26,4 @@ Start schlusseli and keycloa: `./startup.sh`
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
-# schlusseli
+#

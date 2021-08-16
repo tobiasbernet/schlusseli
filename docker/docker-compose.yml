@@ -8,7 +8,7 @@ services:
   postgres:
       image: postgres
       ports:
-      - 5440:5640
+      - 5640:5640
       volumes:
         - postgres_data:/var/lib/postgresql/data
       environment:
@@ -17,6 +17,7 @@ services:
         POSTGRES_PASSWORD: postgres
   keycloak:
       image: quay.io/keycloak/keycloak:latest
+      command: ["-Djboss.http.port=8085"]
       environment:
         DB_VENDOR: POSTGRES
         DB_ADDR: postgres
@@ -27,6 +28,6 @@ services:
         KEYCLOAK_USER: admin
         KEYCLOAK_PASSWORD: admin
       ports:
-        - 8080:8081
+        - 8085:8085
       depends_on:
         - postgres

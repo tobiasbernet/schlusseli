@@ -25,16 +25,18 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# OpenID provider config
+config :schlusseli, :openid_connect_providers,
+  keycloak: [
+    discovery_document_uri: "http://127.0.0.1:8085/auth/realms/Schlusseli/.well-known/openid-configuration",
+    client_id: "schlusseli-api",
+    client_secret: "9daec6ad-c6ac-4cde-b955-dc846c2cfbbb",
+    redirect_uri: "",
+    response_type: "code",
+    scope: "api-service",
+    verify_token_audience: true
+  ]
 
-config :keycloak,
-  realm: "heidi",
-  site: "http://127.0.0.1:8080",
-  client_id: "heidi-api",
-  client_secret: ""
-
-config :keycloak, Schlusseli.Plug.VerifyToken,
-  hmac: "0617b135-6bba-4af0-96a7-5e34b7a1aead"
-  #public_key: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhGXASBTDByDsd2BfN1oBLNHveUlHIDonEhhK//lnvKn1GTFhbuId0szZQG4Eenk5laZqcBvbW4WjNuNKV6FtZjQLPUIaJbYMO2g/R4eKsnaQVK8ynHewcbikgB/JhSmw9WknyISmtC+pgSksnilHM2os0V6O5shxCk3ZFRvA6X14PdeQ5ugNilfe2oIhAkO0W+iJgqTIp7EGqYy/wd4M/7QbaoB+wKU1fWjWz+046zZnlAct4KgDi5MlITkuIqbjVOqC4cI+rZk4W459ETJeENowgegx0PXPvTTV1wX63Z8kKElcQewLfp6nA9nR1a9B0SX/6xvwNMXKzVWzjiLZswIDAQAB"
 
 
 # Import environment specific config. This must remain at the bottom
