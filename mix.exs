@@ -42,9 +42,8 @@ defmodule Schlusseli.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:absinthe, "~> 1.4"},
+      {:absinthe, "~> 1.6"},
       {:absinthe_plug, "~> 1.4"},
-      {:keycloak, "~> 1.0.0"},
       {:joken, "~> 2.3.0"},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:openid_connect, "~> 0.1.1"}
