@@ -39,7 +39,7 @@ defmodule Schlusseli.Plug.OpenidConnector do
     with {:ok, claims} <- OpenIDConnect.verify(auth_provider, token),
     true <- verify_audience(claims, get_provider_conf(:verify_token_audience)) do
       conn
-      |> assign(:claims, claims)
+      |> Absinthe.Plug.put_options(context: %{claims: claims})
     else
       _ -> auth_error(conn)
     end
