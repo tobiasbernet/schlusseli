@@ -15,6 +15,7 @@ defmodule SchlusseliWeb.Schema do
 
     @desc "Get all customers"
     field :customers, list_of(:customer) do
+      middleware SchlusseliWeb.Schema.Middleware.Authorize, "view_customers"
       resolve &Resolvers.Customer.list_customers/3
     end
 
