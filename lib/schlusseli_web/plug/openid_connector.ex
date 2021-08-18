@@ -39,7 +39,7 @@ defmodule Schlusseli.Plug.OpenidConnector do
     with {:ok, claims} <- OpenIDConnect.verify(auth_provider, token),
     true <- verify_audience(claims, get_provider_conf(:verify_token_audience)) do
       conn
-      |> Absinthe.Plug.put_options(context: %{claims: claims})
+      |> Absinthe.Plug.put_options(context: %{claims: normalize_claims(claims)})
     else
       _ -> auth_error(conn)
     end
@@ -66,5 +66,9 @@ defmodule Schlusseli.Plug.OpenidConnector do
         |> put_resp_content_type("application/vnd.api+json")
         |> send_resp(401, Poison.encode!(%{error: :not_authorized}))
         |> halt()
+  end
+
+  defp normalize_claims(claims) do
+    for {key, val} <- claims, into: %{}, do: {String.to_atom(key), val}
   end
 end
