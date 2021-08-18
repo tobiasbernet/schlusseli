@@ -11,7 +11,7 @@ defmodule SchlusseliWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
-    plug(Schlusseli.Plug.OpenidConnector)
+    # plug(Schlusseli.Plug.OpenidConnector)
   end
 
   scope "/", SchlusseliWeb do
@@ -21,9 +21,9 @@ defmodule SchlusseliWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", SchlusseliWeb do
+  scope "/api" do
     pipe_through :api
 
-    get "/", PageController, :index
+    forward("/", Absinthe.Plug, schema: SchlusseliWeb.Schema)
   end
 end
