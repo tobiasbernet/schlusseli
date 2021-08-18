@@ -5,15 +5,19 @@ defmodule Schlusseli.Factory do
   # https://didyouknowhomes.com/8-different-types-of-keys-in-depth-explanation/
   @key_types ["transponder", "laser-cut", "dimple", "tubular", "primary"]
 
-  def key do
+  def key_factory() do
     %{
+      id: sequence(:id, &(&1), start_at: 1),
       serial: :os.system_time(:millisecond),
-      type: sequence(:type, @key_types),
+      type: sequence(:type, @key_types)
     }
   end
 
-  def generate_keys do
-    1..10
-    |> Enum.map(fn i -> key() |> Map.put(:id, i) end)
+  def customer_factory do
+    %{
+      id: sequence(:id, &(&1), start_at: 1),
+      name: "Hans Lock Smith",
+      email: sequence(:email, &"email-#{&1}@example.com")
+    }
   end
 end
