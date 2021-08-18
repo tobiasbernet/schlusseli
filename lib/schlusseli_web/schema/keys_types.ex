@@ -3,7 +3,7 @@ defmodule SchlusseliWeb.Schema.KeyTypes do
 
   object :key do
     field :id, :id
-    field :lock, :string
+    field :type, :string
     field :serial, :string
   end
 end
