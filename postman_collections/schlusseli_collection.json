@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "4a4287dc-dca2-496d-8555-0dbb89655b02",
+    "name": "Schlusseli",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Keycloak",
+      "item": [
+        {
+          "name": "Get the public key",
+          "_postman_id": "9f37367f-8394-4797-a440-a54508182432",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/certs"
+          },
+          "response": []
+        },
+        {
+          "name": "Well known configuration",
+          "_postman_id": "89dd09d4-95f6-4392-afe7-fe3ae0b1c010",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{keycloak_url}}/realms/{{realm}}/.well-known/openid-configuration"
+          },
+          "response": []
+        },
+        {
+          "name": "Token introspect",
+          "_postman_id": "fb685e30-9f85-45a5-b02b-053dcc29e270",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJHLXY5NGJsY2RCdUVUWmFVbHpJN0RzanBQQ2p1SVotbnlPZW1jajJxUkZRIn0.eyJleHAiOjE2Mjg2MDkzMjgsImlhdCI6MTYyODYwOTAyOCwiYXV0aF90aW1lIjoxNjI4NjA5MDI4LCJqdGkiOiJlNTQ5Y2UwZS0xZGMyLTQ1YWEtYjEzZC04NzljY2NlZjczZTciLCJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwODEvYXV0aC9yZWFsbXMvU2NobHVzc2VsaSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4MzhjYjBkNy1iOTEzLTQ0N2MtYjQ4My01ZDY5NzRlNTk0OGUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhcHAtdWkiLCJzZXNzaW9uX3N0YXRlIjoiNWQ5NTQ5MWYtYTJjMC00OWI3LWEzM2YtMTBlNzUxNjI3YjRiIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc2NobHVzc2VsaSIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9kdWN0cyBlbWFpbCBwcm9maWxlIiwic2lkIjoiNWQ5NTQ5MWYtYTJjMC00OWI3LWEzM2YtMTBlNzUxNjI3YjRiIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyIn0.cC-cMAWBHuf9nBmhl7zzATxjac-PNHvPrlzJVjE2XWAxUSwD0JUkFn4eVRqnjbjefHlIAzXpnY1ZWwCdK5vTV_PAhg5ExpBje9XXeCaSs9hrcwNMVPbWB0-M0GjGM8vMRzhFmcT-w9FF4zRxiiReb6wYjrN5EtgBMqwathIsZ0fOdMxqlyeFyuScmQfRP1flrpcSVFg9ATA8JJRjIBLQdC55HK1WVTZ5mUwlALin79VtrrajAMrZxcb6rfwmacwyKYTQjPlCNfiJXGXo9f0qm6p3m7A__NerFCMQ8k0iv3Dvw-pPMhUH-Axbn0Nt_AcRRbpNeoCPVs3Xt9nwh-FOMw",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "bearer-only",
+                  "value": "true",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "grant_type",
+                  "value": "password",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "client_id",
+                  "value": "schlusseli-api",
+                  "type": "text"
+                },
+                {
+                  "key": "client_assertion_type",
+                  "value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "client_assertion",
+                  "value": ".eyJleHAiOjE2Mjg2MDkzMjgsImlhdCI6MTYyODYwOTAyOCwiYXV0aF90aW1lIjoxNjI4NjA5MDI4LCJqdGkiOiJlNTQ5Y2UwZS0xZGMyLTQ1YWEtYjEzZC04NzljY2NlZjczZTciLCJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwODEvYXV0aC9yZWFsbXMvU2NobHVzc2VsaSIsImF1ZCI6ImFjY291bnQiLCJzdWIiOiI4MzhjYjBkNy1iOTEzLTQ0N2MtYjQ4My01ZDY5NzRlNTk0OGUiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJhcHAtdWkiLCJzZXNzaW9uX3N0YXRlIjoiNWQ5NTQ5MWYtYTJjMC00OWI3LWEzM2YtMTBlNzUxNjI3YjRiIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsImRlZmF1bHQtcm9sZXMtc2NobHVzc2VsaSIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9kdWN0cyBlbWFpbCBwcm9maWxlIiwic2lkIjoiNWQ5NTQ5MWYtYTJjMC00OWI3LWEzM2YtMTBlNzUxNjI3YjRiIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJ1c2VyIn0.cC-cMAWBHuf9nBmhl7zzATxjac-PNHvPrlzJVjE2XWAxUSwD0JUkFn4eVRqnjbjefHlIAzXpnY1ZWwCdK5vTV_PAhg5ExpBje9XXeCaSs9hrcwNMVPbWB0-M0GjGM8vMRzhFmcT-w9FF4zRxiiReb6wYjrN5EtgBMqwathIsZ0fOdMxqlyeFyuScmQfRP1flrpcSVFg9ATA8JJRjIBLQdC55HK1WVTZ5mUwlALin79VtrrajAMrZxcb6rfwmacwyKYTQjPlCNfiJXGXo9f0qm6p3m7A__NerFCMQ8k0iv3Dvw-pPMhUH-Axbn0Nt_AcRRbpNeoCPVs3Xt9nwh-FOMw",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "client_secret",
+                  "value": "9b81d2f0-1f5d-4a12-8d3a-3032be945c5a",
+                  "type": "text"
+                },
+                {
+                  "key": "user_id",
+                  "value": "user",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "text"
+                },
+                {
+                  "key": "scope",
+                  "value": "schlusseli-services",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "token_type_hint",
+                  "value": "Bearer",
+                  "type": "text",
+                  "disabled": true
+                }
+              ],
+              "options": {
+                "urlencoded": {}
+              }
+            },
+            "url": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/token/introspect",
+            "description": "https://connect2id.com/products/server/docs/api/token-introspection"
+          },
+          "response": []
+        },
+        {
+          "name": "Get confidential public key",
+          "_postman_id": "d6458be9-b9a9-4a8b-8cb5-518686455210",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": ""
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "32fe0b1c-9c94-4741-bf4d-19ae80cb351b"
+    },
+    {
+      "name": "GraphQL API",
+      "item": [
+        {
+          "name": "List all keys",
+          "_postman_id": "5dd5d922-7536-4df9-b01a-6544b76a1eff",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": {
+                "scope": "openid {{schlusseli_scope}}",
+                "clientSecret": "{{good_client_secret}}",
+                "clientId": "{{good_client_id}}",
+                "authUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/auth",
+                "accessTokenUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/token",
+                "tokenName": "Schlusseli-ui",
+                "grant_type": "authorization_code",
+                "redirect_uri": "https://www.getpostman.com/oauth2",
+                "useBrowser": false,
+                "addTokenTo": "header"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  keys {\n    type\n    serial\n  }\n}",
+                "variables": ""
+              },
+              "options": {
+                "graphql": {}
+              }
+            },
+            "url": "{{url}}:{{port}}/api"
+          },
+          "response": []
+        },
+        {
+          "name": "List all customers",
+          "_postman_id": "3a6d61ab-ebc6-457a-a0f0-b6b7f779145a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "oauth2",
+              "oauth2": {
+                "scope": "openid {{schlusseli_scope}} view_customers",
+                "tokenName": "list-all-customer",
+                "clientSecret": "{{good_client_secret}}",
+                "clientId": "{{good_client_id}}",
+                "authUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/auth",
+                "accessTokenUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/token",
+                "grant_type": "authorization_code",
+                "redirect_uri": "https://www.getpostman.com/oauth2",
+                "useBrowser": false,
+                "addTokenTo": "header"
+              }
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "graphql",
+              "graphql": {
+                "query": "{\n  customers {\n      id\n    email\n    name\n  }\n}",
+                "variables": ""
+              },
+              "options": {
+                "graphql": {}
+              }
+            },
+            "url": "{{url}}:{{port}}/api"
+          },
+          "response": []
+        }
+      ],
+      "_postman_id": "7c533d10-7918-487f-b7a1-bdc111129b59"
+    },
+    {
+      "name": "Access API (evil client)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "bd38f49b-fec8-4d14-907d-75136fba1fb0",
+            "exec": [
+              "pm.test(\"Status code is 401\", function () {",
+              "    pm.response.to.have.status(401);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "701f3fd6-6c38-48e0-96a2-3274a24e1f81",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": {
+            "scope": "openid",
+            "clientSecret": "{{evil_client_secret}}",
+            "clientId": "{{evil_client_id}}",
+            "authUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/auth",
+            "accessTokenUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/token",
+            "tokenName": "Schlusseli-ui",
+            "grant_type": "authorization_code",
+            "redirect_uri": "https://www.getpostman.com/oauth2",
+            "useBrowser": false,
+            "addTokenTo": "header"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{url}}:{{port}}/api"
+      },
+      "response": []
+    },
+    {
+      "name": "Access API (good client)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "6c3b9012-0df4-4bae-9c75-2b7e61a94331",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "f736a572-57d4-46b3-aad5-bb6cb00e38e6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": {
+            "scope": "openid {{schlusseli_scope}}",
+            "clientSecret": "{{good_client_secret}}",
+            "clientId": "{{good_client_id}}",
+            "authUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/auth",
+            "accessTokenUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/token",
+            "tokenName": "Schlusseli-ui",
+            "grant_type": "authorization_code",
+            "redirect_uri": "https://www.getpostman.com/oauth2",
+            "useBrowser": false,
+            "addTokenTo": "header"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{url}}:{{port}}/api"
+      },
+      "response": []
+    },
+    {
+      "name": "Access API (anonymous client)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "b37481b7-2758-48ca-82f7-eba6821a3ac4",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "91add64d-b55f-4922-852d-300351a46170",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": {
+            "scope": "openid",
+            "clientSecret": "",
+            "clientId": "anonymous-client",
+            "authUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/auth",
+            "accessTokenUrl": "{{keycloak_url}}/realms/{{realm}}/protocol/openid-connect/token",
+            "tokenName": "Schlusseli-ui",
+            "grant_type": "authorization_code",
+            "redirect_uri": "https://www.getpostman.com/oauth2",
+            "useBrowser": false,
+            "addTokenTo": "header"
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "{{url}}:{{port}}/api"
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": {
+      "tokenName": "Schlusseli-ui",
+      "clientId": "schlusseli-ui",
+      "accessTokenUrl": "http://127.0.0.1:8080/auth/realms/schlusseli/protocol/openid-connect/token",
+      "authUrl": "http://127.0.0.1:8080/auth/realms/schlusseli/protocol/openid-connect/auth",
+      "clientSecret": "",
+      "grant_type": "authorization_code",
+      "redirect_uri": "https://www.getpostman.com/oauth2",
+      "useBrowser": false,
+      "scope": "openid",
+      "addTokenTo": "header"
+    }
+  },
+  "variable": [
+    {
+      "id": "a7b497e1-cf96-453b-baa6-d4d813d811c7",
+      "key": "good_client_secret",
+      "value": "d9fe01c4-d9b8-42c7-b856-510ff0ff07fe",
+      "type": "string"
+    }
+  ]
+}
