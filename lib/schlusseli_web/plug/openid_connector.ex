@@ -3,7 +3,7 @@ defmodule Schlusseli.Plug.OpenidConnector do
   Plug for verifying authorization on a per request basis, verifies that a token is set in the
   `Authorization` header.
 
-  Problem: OpenIDConnect verifies the token with the public key. No `introspec` is made. We don't know if the token is valid or not.
+  Problem: OpenIDConnect verifies the token with the public key. No `introspec` is made. We do not know if the token has been revoked or not.
   """
 
   import Plug.Conn

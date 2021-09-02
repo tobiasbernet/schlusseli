@@ -1,9 +1,9 @@
-defmodule Schlusseli.Plug.KeycloakCustomConnector do
+defmodule Schlusseli.Plug.KeycloakIntorspect do
 @moduledoc """
-  Plug for verifying authorization on a per request basis, verifies that a token is set in the
-  `Authorization` header.
+  Plug to verify token via keycloak's introspection endpoint.
 
-  Problem: OpenIDConnect verifies the token with the public key. No `introspect` is made. We don't know if the token is valid or not.
+
+  The verification by the Keycloak introspect endpoint ensures that the token becomes invalid after a revoke.
   """
 
   import Plug.Conn
