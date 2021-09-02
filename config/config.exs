@@ -28,8 +28,10 @@ config :phoenix, :json_library, Jason
 # OpenID provider config
 config :schlusseli, :openid_connect_providers,
   keycloak: [
-    discovery_document_uri: "http://127.0.0.1:8085/auth/realms/Schlusseli/.well-known/openid-configuration",
-    introspect_uri: "http://127.0.0.1:8085/auth/realms/Schlusseli/protocol/openid-connect/token/introspect",
+    discovery_document_uri:
+      "http://127.0.0.1:8085/auth/realms/Schlusseli/.well-known/openid-configuration",
+    introspect_uri:
+      "http://127.0.0.1:8085/auth/realms/Schlusseli/protocol/openid-connect/token/introspect",
     client_id: "schlusseli-api",
     client_secret: "9b81d2f0-1f5d-4a12-8d3a-3032be945c5a",
     redirect_uri: "",
@@ -37,8 +39,6 @@ config :schlusseli, :openid_connect_providers,
     scope: "api-service",
     verify_token_audience: true
   ]
-
-
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
