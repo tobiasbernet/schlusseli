@@ -3,7 +3,7 @@ defmodule SchlusseliWeb.Schema.Middleware.Authorize do
 
   def call(resolution, scope) do
     with %{claims: %{scope: current_scopes}} <- resolution.context,
-    true <- correct_scope?(current_scopes, scope) do
+         true <- correct_scope?(current_scopes, scope) do
       resolution
     else
       _ ->
