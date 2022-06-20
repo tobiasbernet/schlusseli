@@ -44,7 +44,7 @@ defmodule Schlusseli.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:absinthe, "~> 1.6"},
       {:absinthe_plug, "~> 1.4"},
-      {:joken, "~> 2.4.0"},
+      {:joken, "~> 2.5.0"},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
       {:openid_connect, "~> 0.2.2"},
       {:ex_machina, "~> 2.7.0"}
